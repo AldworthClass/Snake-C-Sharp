@@ -28,27 +28,27 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			this.GameLoop = new System.Windows.Forms.Timer(this.components);
-			this.SuspendLayout();
-			// 
-			// GameLoop
-			// 
-			this.GameLoop.Enabled = true;
-			this.GameLoop.Interval = 200;
-			this.GameLoop.Tick += new System.EventHandler(this.GameLoop_Tick);
-			// 
-			// SnakeGame
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(600, 600);
-			this.DoubleBuffered = true;
-			this.Name = "SnakeGame";
-			this.Text = "Snake Game";
-			this.Load += new System.EventHandler(this.SnakeGame_Load);
-			this.Paint += new System.Windows.Forms.PaintEventHandler(this.SnakeGame_Paint);
-			this.ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.GameLoop = new System.Windows.Forms.Timer(this.components);
+            this.SuspendLayout();
+            // 
+            // GameLoop
+            // 
+            this.GameLoop.Enabled = true;
+            this.GameLoop.Interval = 200;
+            this.GameLoop.Tick += new System.EventHandler(this.GameLoop_Tick);
+            // 
+            // SnakeGame
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(600, 600);
+            this.Name = "SnakeGame";
+            this.Text = "Snake Game";
+            this.Load += new System.EventHandler(this.SnakeGame_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.SnakeGame_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SnakeGame_KeyDown);
+            this.ResumeLayout(false);
 
 		}
 
