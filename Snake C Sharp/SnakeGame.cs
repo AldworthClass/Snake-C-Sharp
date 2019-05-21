@@ -16,8 +16,9 @@ namespace Snake_C_Sharp
 	{
 		Graphics snakeWindow;
 		Snake snake;
-       
-
+        Point fruit;
+        Random random;
+        SolidBrush fruitBrush;
         public SnakeGame()
 		{
 			InitializeComponent();
@@ -25,10 +26,15 @@ namespace Snake_C_Sharp
 
 		private void SnakeGame_Load(object sender, EventArgs e)
 		{
+            fruitBrush = new SolidBrush(Color.Yellow);
+            random = new Random();
+            fruit = new Point(random.Next (41), random.Next(41));
             snakeWindow = this.CreateGraphics();
             this.ClientSize = new Size(600, 600);//Sets size of game window
 			snakeWindow = this.CreateGraphics();
             snake = new Snake(snakeWindow, new Point(20, 20), new Size(40, 40), new Size(15, 15));
+            snake.grow();
+            snake.grow();
             snake.grow();
             snake.grow();
         }
@@ -36,13 +42,22 @@ namespace Snake_C_Sharp
         private void SnakeGame_Paint(object sender, PaintEventArgs e)
 		{
             snakeWindow.Clear(Color.Black);
-            snake.draw();
+            snakeWindow.FillEllipse(fruitBrush, new Rectangle(fruit, new Size(15, 15)));
+  ;          snake.draw();
+
             
         }
 
 		private void GameLoop_Tick(object sender, EventArgs e)
 		{
-            snake.move();
+            if (snake.move())//finds collision with self
+            {
+                GameLoop.Enabled = false;
+                MessageBox.Show("You Died");
+                this.Close();
+            }
+                
+            //Re-draws
             this.Invalidate();
 		}
 
