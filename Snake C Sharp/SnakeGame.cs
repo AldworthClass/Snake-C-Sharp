@@ -34,16 +34,14 @@ namespace Snake_C_Sharp
 			snakeWindow = this.CreateGraphics();
             snake = new Snake(snakeWindow, new Point(20, 20), new Size(40, 40), new Size(15, 15));
             snake.grow();
-            snake.grow();
-            snake.grow();
-            snake.grow();
+           
         }
 
         private void SnakeGame_Paint(object sender, PaintEventArgs e)
 		{
             snakeWindow.Clear(Color.Black);
-            snakeWindow.FillEllipse(fruitBrush, new Rectangle(fruit, new Size(15, 15)));
-  ;          snake.draw();
+            snakeWindow.FillEllipse(fruitBrush, new Rectangle(fruit.X * 15, fruit.Y * 15, 15, 15 ));
+            snake.draw();
 
             
         }
@@ -55,6 +53,12 @@ namespace Snake_C_Sharp
                 GameLoop.Enabled = false;
                 MessageBox.Show("You Died");
                 this.Close();
+            }
+            //Detects if fruit is eaten
+            if (snake.getHead().Equals(fruit))
+            {
+                snake.grow();
+                fruit = new Point(random.Next(41), random.Next(41));
             }
                 
             //Re-draws

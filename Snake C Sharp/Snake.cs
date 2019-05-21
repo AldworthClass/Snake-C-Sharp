@@ -27,6 +27,11 @@ namespace Snake_C_Sharp
 			snakeWindow = board;
 			snake.Add(start);
 		}
+
+        public Point getHead()
+        {
+            return snake[0];
+        }
 		public void grow()
 		{
 			if (direction.Equals("u"))
@@ -37,7 +42,6 @@ namespace Snake_C_Sharp
 				snake.Add(new Point(snake[snake.Count - 1].X + 1, snake[snake.Count - 1].Y));
 			else
 				snake.Add(new Point(snake[snake.Count - 1].X - 1, snake[snake.Count - 1].Y));
-            
         }
 		public Boolean  move()
 		{
@@ -56,11 +60,17 @@ namespace Snake_C_Sharp
 					else
 						snake[0]=(new Point(snake[0].X + 1, snake[0].Y));
 			}
-            //Checks for collision with self
-            for (int i = 1; i < snake.Count; i++)
+            //Checks for collision with edge of screen
+            if (snake[0].X < 0 || snake[0].X > boardSize.Width * 15 || snake[0].Y < 0 || snake[0].Y > boardSize.Height * 15)
+            {
+                return true;
+            }
+                //Checks for collision with self
+                for (int i = 1; i < snake.Count; i++)
             {
                 if (snake[0].Equals(snake[i]))
                     return true;
+               
             }
             return false;
 		}
