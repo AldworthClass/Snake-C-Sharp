@@ -61,12 +61,12 @@ namespace Snake_C_Sharp
 						snake[0]=(new Point(snake[0].X + 1, snake[0].Y));
 			}
             //Checks for collision with edge of screen
-            if (snake[0].X < 0 || snake[0].X > boardSize.Width * 15 || snake[0].Y < 0 || snake[0].Y > boardSize.Height * 15)
+            if (snake[0].X < 0 || snake[0].X >= boardSize.Width || snake[0].Y < 0 || snake[0].Y >= boardSize.Height)
             {
                 return true;
             }
                 //Checks for collision with self
-                for (int i = 1; i < snake.Count; i++)
+            for (int i = 1; i < snake.Count; i++)
             {
                 if (snake[0].Equals(snake[i]))
                     return true;
