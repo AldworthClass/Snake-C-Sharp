@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,8 @@ namespace Snake_C_Sharp
 {
 	public partial class SnakeGame : Form
 	{
-		Graphics snakeWindow;
+        //SNAKe
+        Graphics snakeWindow;
 		Snake snake;
         Point fruit;
         Random random;
