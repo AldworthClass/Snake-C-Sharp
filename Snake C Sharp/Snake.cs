@@ -45,21 +45,19 @@ namespace Snake_C_Sharp
         }
 		public Boolean  move()
 		{
-			//Starts with last section and moves each
-			for(int i = snake.Count - 1; i >=0; i--)
-			{
-				if (i > 0)
-					snake[i] = snake[i - 1];
-				else
-					if (direction == "u")
-						snake[0] = (new Point(snake[0].X, snake[0].Y - 1));
-					else if (direction == "d")
-						snake[0]=(new Point(snake[0].X, snake[0].Y + 1));
-					else if (direction == "l")
-						snake[0]=(new Point(snake[0].X - 1, snake[0].Y));
-					else
-						snake[0]=(new Point(snake[0].X + 1, snake[0].Y));
-			}
+            //Takes last peiece and inserts it at head instead
+            //Point temp = snake[snake.Count - 1];
+            snake.RemoveAt(snake.Count - 1);
+            snake.Insert(0, new Point());
+			if(direction == "u")
+				snake[0] = (new Point(snake[1].X, snake[1].Y - 1));
+			else if (direction == "d")
+				snake[0]=(new Point(snake[1].X, snake[1].Y + 1));
+			else if (direction == "l")
+				snake[0]=(new Point(snake[1].X - 1, snake[1].Y));
+			else
+					snake[0]=(new Point(snake[1].X + 1, snake[1].Y));
+			
             //Checks for collision with edge of screen
             if (snake[0].X < 0 || snake[0].X >= boardSize.Width || snake[0].Y < 0 || snake[0].Y >= boardSize.Height)
             {
