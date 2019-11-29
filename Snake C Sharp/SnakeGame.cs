@@ -36,7 +36,6 @@ namespace Snake_C_Sharp
 			snakeWindow = this.CreateGraphics();
             snake = new Snake(snakeWindow, new Point(20, 20), new Size(40, 40), new Size(15, 15));
             snake.grow();
-           
         }
 
         private void SnakeGame_Paint(object sender, PaintEventArgs e)
