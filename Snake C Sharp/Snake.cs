@@ -56,7 +56,7 @@ namespace Snake_C_Sharp
 			else if (direction == "l")
 				snake[0]=(new Point(snake[1].X - 1, snake[1].Y));
 			else
-					snake[0]=(new Point(snake[1].X + 1, snake[1].Y));
+				snake[0]=(new Point(snake[1].X + 1, snake[1].Y));
 			
             //Checks for collision with edge of screen
             if (snake[0].X < 0 || snake[0].X >= boardSize.Width || snake[0].Y < 0 || snake[0].Y >= boardSize.Height)

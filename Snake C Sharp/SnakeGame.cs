@@ -30,7 +30,7 @@ namespace Snake_C_Sharp
 		{
             fruitBrush = new SolidBrush(Color.Yellow);
             random = new Random();
-            fruit = new Point(random.Next (41), random.Next(41));
+            fruit = new Point(random.Next(41), random.Next(41));
             snakeWindow = this.CreateGraphics();
             this.ClientSize = new Size(600, 600);//Sets size of game window
 			snakeWindow = this.CreateGraphics();
@@ -49,7 +49,7 @@ namespace Snake_C_Sharp
 
 		private void GameLoop_Tick(object sender, EventArgs e)
 		{
-            if (snake.move())//finds collision with self
+            if (snake.move())//Finds collision with self
             {
                 GameLoop.Enabled = false;
                 MessageBox.Show("You Died");
