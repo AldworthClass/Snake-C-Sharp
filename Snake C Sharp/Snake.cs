@@ -10,21 +10,19 @@ namespace Snake_C_Sharp
 	
 	class Snake
 	{
-		private Graphics snakeWindow;	//Drawing surface
 		private List<Point> snake;		//Snake tiles
 		private int width;				//width of snake tile
 		private int height;				//height of snake tile
 		private Size boardSize;			//board size
 		private String direction;
 
-		public Snake(Graphics board, Point start, Size boardSize, Size snakeSize)
+		public Snake(Point start, Size boardSize, Size snakeSize)
 		{
 			direction = "u";
 			snake = new List<Point>();
 			this.boardSize = boardSize;
 			width = snakeSize.Width;
 			height = snakeSize.Height;
-			snakeWindow = board;
 			snake.Add(start);
 		}
 
@@ -73,7 +71,7 @@ namespace Snake_C_Sharp
             return false;
 		}
 
-		public void draw()
+		public void draw(Graphics snakeWindow)
 		{
 			SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Green);
             SolidBrush myHeadBrush = new System.Drawing.SolidBrush(System.Drawing.Color.Red);

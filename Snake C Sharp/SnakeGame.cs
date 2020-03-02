@@ -16,7 +16,8 @@ namespace Snake_C_Sharp
 	public partial class SnakeGame : Form
 	{
         //SNAKe
-        Graphics snakeWindow;
+
+        //Graphics snakeWindow;
 		Snake snake;
         Point fruit;
         Random random;
@@ -28,21 +29,21 @@ namespace Snake_C_Sharp
 
 		private void SnakeGame_Load(object sender, EventArgs e)
 		{
+  
             fruitBrush = new SolidBrush(Color.Yellow);
             random = new Random();
             fruit = new Point(random.Next(41), random.Next(41));
-            snakeWindow = this.CreateGraphics();
             this.ClientSize = new Size(600, 600);//Sets size of game window
-			snakeWindow = this.CreateGraphics();
-            snake = new Snake(snakeWindow, new Point(20, 20), new Size(40, 40), new Size(15, 15));
+            snake = new Snake(new Point(20, 20), new Size(40, 40), new Size(15, 15));
             snake.grow();
         }
 
         private void SnakeGame_Paint(object sender, PaintEventArgs e)
 		{
+            Graphics snakeWindow = this.CreateGraphics();
             snakeWindow.Clear(Color.Black);
             snakeWindow.FillEllipse(fruitBrush, new Rectangle(fruit.X * 15, fruit.Y * 15, 15, 15 ));
-            snake.draw();
+            snake.draw(snakeWindow);
 
             
         }
