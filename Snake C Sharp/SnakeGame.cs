@@ -41,7 +41,7 @@ namespace Snake_C_Sharp
         private void SnakeGame_Paint(object sender, PaintEventArgs e)
 		{
             Graphics snakeWindow = this.CreateGraphics();
-            snakeWindow.Clear(Color.Black);
+            //snakeWindow.Clear(Color.Black);
             snakeWindow.FillEllipse(fruitBrush, new Rectangle(fruit.X * 15, fruit.Y * 15, 15, 15 ));
             snake.draw(snakeWindow);
 
