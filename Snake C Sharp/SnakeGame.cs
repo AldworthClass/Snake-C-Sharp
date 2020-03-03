@@ -29,7 +29,6 @@ namespace Snake_C_Sharp
 
 		private void SnakeGame_Load(object sender, EventArgs e)
 		{
-  
             fruitBrush = new SolidBrush(Color.Yellow);
             random = new Random();
             fruit = new Point(random.Next(41), random.Next(41));
@@ -40,7 +39,7 @@ namespace Snake_C_Sharp
 
         private void SnakeGame_Paint(object sender, PaintEventArgs e)
 		{
-            Graphics snakeWindow = this.CreateGraphics();
+            Graphics snakeWindow = e.Graphics; ;
             //snakeWindow.Clear(Color.Black);
             snakeWindow.FillEllipse(fruitBrush, new Rectangle(fruit.X * 15, fruit.Y * 15, 15, 15 ));
             snake.draw(snakeWindow);

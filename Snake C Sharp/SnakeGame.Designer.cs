@@ -44,6 +44,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Snake_C_Sharp.Properties.Resources.leaf_snake;
             this.ClientSize = new System.Drawing.Size(600, 600);
+            this.DoubleBuffered = true;
             this.Name = "SnakeGame";
             this.Text = "Snake Game";
             this.Load += new System.EventHandler(this.SnakeGame_Load);
